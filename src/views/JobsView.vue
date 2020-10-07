@@ -8,7 +8,3 @@ export default {
   components:{listItem}
 }
 </script>
-
-<style>
-
-</style>

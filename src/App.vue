@@ -2,7 +2,7 @@
     <div id="app">
         <Tool-Bar></Tool-Bar>
         <router-view></router-view>
-        <Spinner></Spinner>
+        <Spinner :loading="loadStatus"></Spinner>
     </div>
 </template>
 
@@ -33,11 +33,6 @@ export default {
 }
 </script>
 <style>
-  body {font-family: 'Playfair Display', serif; font-size:18px; padding:0; margin:0;}
-  a {color: black;}
-  * {margin:0; padding:0}
-  li {list-style-type: none;}
-  p + p {margin-top:20px}
-  #app {padding:0 20px}
-  .content {padding:30px 20px}
+@import url('./assets/css/reset.css');
+@import url('./assets/css/common.css');
 </style>

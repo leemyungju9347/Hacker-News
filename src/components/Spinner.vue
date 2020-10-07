@@ -1,5 +1,5 @@
 <template>
-  <div class="loading_bar">
+  <div class="loading_bar" v-if="loading">
       <div></div>
       <div></div>
       <div></div>
@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  props:['loading']
 
 }
 </script>
