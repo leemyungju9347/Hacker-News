@@ -7,6 +7,7 @@ Vue.config.productionTip = false
 
 export default new Vue();
 
+
 new Vue({
   router,
   store,

@@ -15,19 +15,18 @@
 </template>
 
 <script>
+import listMixins from '../mixins/listMixins'
 export default {
     computed:{
         list(){
             return this.$store.state.list
         }
     },
+    mixins : [listMixins],
     created(){
-      console.log(this.$router);
-      console.log(this.$router.name);
-      this.$store.dispatch('FETCH_LIST',this.$route.name);
-      localStorage.setItem('nav',this.$route.name);
-    }
-
+      const routeName = this.$route.name
+      this.$store.dispatch('FETCH_LIST',routeName);
+    },
 }
 </script>
 

@@ -5,7 +5,6 @@
         <span> - {{ comments.time_ago }}</span>
       </p>
       <h3>{{ comments.title }}</h3>
-      <!-- <span v-html="comments.content" class="askContent"></span> -->
       <ol class="comment_list">
           <li v-for="item in comments_contents" :key="item.id">
               <span v-html="item.content"></span>
@@ -28,6 +27,7 @@ export default {
     created(){
         const commentId = this.$route.params.id;
         this.$store.dispatch('FETCH_COMMENT', commentId);
+        window.scrollTo(0,0)
        
         
     }

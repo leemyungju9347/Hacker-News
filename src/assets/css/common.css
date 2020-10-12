@@ -4,6 +4,7 @@
     padding: 30px;
     box-shadow: 14px 12px #707070;
     overflow: hidden;
+    position: relative;
 }
 
 /*--------header-------------*/
@@ -11,6 +12,7 @@ header {
     border-bottom: 3px solid #000;
     position: relative;
     padding: 0 20px 10px;
+    /* min-width: 1100px; */
 }
 
 header > h1 {
@@ -25,15 +27,17 @@ header > .router-link {
     transform: translateX(-50%);
     top: 7px;
 }
-
-header > .router-link > a {
-    font-size: 2em;
-    padding:0 10px;
+header > .router-link > li {
     display: inline-block;
+    /* transition: 0.5s; */
+}
+
+header > .router-link > li + li {
+    margin-left: 30px;
 }
 
 
-header > .router-link > a.active {
+header > .router-link > li.active {
     /* background-color: #000; */
     /* color: #fff; */
     /* background-color: #E5190F; */
@@ -46,13 +50,18 @@ header > .router-link > a.active {
     background-color: #000;
     background-color: #EA5334;
     /* background-color: #353434; */
+}
+
+
+header > .router-link > li > a {
+    font-size: 2em;
+    padding:0 10px;  
+}
+
+header > .router-link > li.active > a {
     color: #fff;
-
 }
 
-header > .router-link > a + a {
-    margin-left: 30px;
-}
 
 
 /*-------list-------*/
@@ -182,3 +191,120 @@ header > .router-link > a + a {
     margin-right: 10px;
 }
 
+/* ---------- mediaquery -------- */
+@media screen and (max-width:1200px) {
+    header > .router-link {
+    }
+}
+
+@media screen and (max-width:1023px) {
+    body {
+        background-color: cornflowerblue;
+    }
+
+    header > h1 {
+        margin-right: 78px; 
+        font-size: 2em;
+    }
+
+    header > .router-link {
+        position: unset;
+        transform: unset;
+        display: inline-block;
+    }
+
+    header > .router-link > li > a {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width:768px) {
+    body {
+        background-color: darkcyan;
+        padding: 10px;
+        padding-right: 15px;
+    }
+
+    #app {
+        padding: 15px;
+        box-shadow: 7px 5px #707070;
+    }
+
+    header {
+        text-align: center;
+        padding: 0 10px 15px;
+    }
+
+    header > h1 {
+        font-size: 1.2em;
+        margin-right: 0;
+        display: block;
+    }
+
+    header > .router-link {
+        margin-top: 10px;
+    }
+    header > .router-link > li + li {
+        margin-left:5px;
+    }
+
+    header > .router-link > li > a {
+        padding: 0 5px;
+        font-size: 1em;
+    }
+
+    .title-list {
+        margin-top: 0;
+        padding: 10px;
+    }
+
+    .title-list > li > .title {
+        font-size: 15px;
+        margin-right: 7px;
+    }
+
+    .title-list > li > .comment > span {
+        font-size: 10px;
+    }
+
+    .title-list > li > b {
+        font-size: 12px;
+    }
+
+    .title-list > li > .user_area {
+        font-size: 12px;
+    }
+
+    .title-list > li > .user_area::after {
+        height: 9px;
+    }
+
+
+    /* -------comment -------- */
+    .comment_wrap {
+        padding: 10px;
+    }
+
+    .comment_wrap > p {
+        font-size: 13px;
+    }
+
+    .comment_wrap > h3 {
+        font-size: 18px;
+        margin-top: 30px;
+    }
+    .comment_wrap > .comment_list {
+        margin-top: 30px;
+    }
+
+    .comment_wrap > .comment_list > li {
+        font-size: 13px;
+        padding: 18px 0;
+    }
+
+    .comment_wrap > .comment_list > li > .user {
+        font-size: 11px;
+        bottom: -10px;
+    }
+    
+}

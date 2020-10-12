@@ -4,9 +4,11 @@
 
 <script>
 import userInfo from '../components/userInfo'
+import listMixins from '../mixins/listMixins'
 
 export default {
-    components : {userInfo}
+    components : {userInfo},
+    mixins:[listMixins]
 }
 </script>
 

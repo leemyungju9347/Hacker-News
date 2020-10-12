@@ -5,6 +5,7 @@ import AskView from '../views/AskView'
 import JobsView from '../views/JobsView'
 import commentView from '../views/commentView'
 import UserView from '../views/UserView'
+import bus from '../utils/bus'
 
 Vue.use(VueRouter)
 
@@ -16,7 +17,7 @@ const routes = [
     {
         path:'/news',
         name:'news',
-        component:NewsView
+        component:NewsView,
     },
     {
         path:'/ask',
@@ -40,7 +41,23 @@ const routes = [
     }
 ]
 
-const router = new VueRouter({mode:'history',routes})
+
+const router = new VueRouter(
+    {
+    mode:'history',
+    routes,
+})
+
+
+router.beforeEach((to, from, next) => {
+    setTimeout(() => {
+        next();
+    }, 2000);
+    
+    bus.$emit('start:spinner')
+
+});
+
 
 export default router
 
