@@ -199,6 +199,7 @@ header > .router_link > li.active > a {
 @media screen and (max-width:1023px) {
      header > h1 {
         margin-right: 78px; 
+        font-size: 1.8em;
     }
 
     header > .router_link > li > a {
@@ -304,7 +305,7 @@ header > .router_link > li.active > a {
     .user_info {
         padding: 30px;
     }
-    
+
     .user_info > li {
         font-size: 18px;
     }
