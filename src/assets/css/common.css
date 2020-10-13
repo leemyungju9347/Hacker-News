@@ -199,7 +199,7 @@ header > .router-link > li.active > a {
 
 @media screen and (max-width:1023px) {
     body {
-        background-color: cornflowerblue;
+        /* background-color: cornflowerblue; */
     }
 
     header > h1 {
@@ -220,7 +220,7 @@ header > .router-link > li.active > a {
 
 @media screen and (max-width:768px) {
     body {
-        background-color: darkcyan;
+        /* background-color: darkcyan; */
         padding: 10px;
         padding-right: 15px;
     }
