@@ -6,38 +6,53 @@ import JobsView from '../views/JobsView'
 import commentView from '../views/commentView'
 import UserView from '../views/UserView'
 import bus from '../utils/bus'
+import store from '../store/index'
 
 Vue.use(VueRouter)
 
 const routes = [
     {
         path:'/',
-        redirect:'/news'
+        redirect:'/news',
     },
     {
         path:'/news',
         name:'news',
         component:NewsView,
+        meta : {
+            auth: true
+        },
+        beforeEnter
     },
     {
         path:'/ask',
         name:'ask',
-        component:AskView
+        component:AskView,
+        meta : {
+            auth: true
+        },
+        beforeEnter
     },
     {
         path:'/jobs',
         name:'jobs',
-        component:JobsView
+        component:JobsView,
+        meta:{
+            auth: true
+        },
+        beforeEnter
     },
     {
         path:'/item/:id',
         name:'comment',
-        component:commentView
+        component:commentView,
+        beforeEnter
     },
     {
         path:'/user/:id',
         name:'user',
-        component:UserView
+        component:UserView,
+        beforeEnter
     }
 ]
 
@@ -48,16 +63,30 @@ const router = new VueRouter(
     routes,
 })
 
+function startSpinner(){
+    bus.$emit('start:spinner');
+}
 
-router.beforeEach((to, from, next) => {
+
+function beforeEnter(to,from,next) {
+    startSpinner();
+
     setTimeout(() => {
-        next();
-    }, 2000);
-    
-    bus.$emit('start:spinner')
+        if( to.meta.auth ) {
+            store.dispatch('FETCH_LIST',to.name)
+            .then(()=>{
+                next()
+            })
+            .catch(err=>{
+                console.log(err)
+            })
 
-});
+        }else{
+            next()
+        }
+    }, 500);
 
+}
 
 export default router
 

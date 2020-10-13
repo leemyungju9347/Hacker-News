@@ -1,5 +1,5 @@
 <template>
-  <ol class="title-list">
+  <ol class="title_list">
     <li v-for="item in list" :key="item.id">
       <a :href="item.url" target="_blank" class="title">{{ item.title }}</a>
       <router-link :to="`/item/${item.id}`" class="comment">
@@ -16,6 +16,7 @@
 
 <script>
 import listMixins from '../mixins/listMixins'
+
 export default {
     computed:{
         list(){
@@ -23,10 +24,6 @@ export default {
         }
     },
     mixins : [listMixins],
-    created(){
-      const routeName = this.$route.name
-      this.$store.dispatch('FETCH_LIST',routeName);
-    },
 }
 </script>
 

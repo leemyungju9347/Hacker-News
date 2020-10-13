@@ -3,7 +3,7 @@
     <h1 @click.prevent="logoClick">
       <router-link to="/">Hacker news</router-link>
     </h1>
-    <ul class="router-link">
+    <ul class="router_link">
       <li 
       v-for="(list,index) in routerList" 
       :key="index" 
@@ -39,7 +39,6 @@ export default {
         }else return
       },
       logoClick() {
-        console.log('클릭');
         this.listOff();
         this.routerList[0].active = 'on'
       },

@@ -1,10 +1,8 @@
 <template>
-  <div class="loading_bar" v-if="loading">
-    <div class="obj"></div>
-    <div class="obj"></div>
-    <div class="obj"></div>
-    <div class="obj"></div>
-    <div class="obj"></div>
+  <div class="loading_wrap" v-if="loading">
+    <div class="loading">
+      <div class="circles"></div>
+    </div>
   </div>
 </template>
 
@@ -15,88 +13,101 @@ export default {
 </script>
 
 <style>
-.loading_bar {
+.loading_wrap {
   position: absolute;
-  top: 350px;
-  left:50%;
-  transform: translateX(-50%);
-}
-.loading_bar > .obj {
-    width: 18px;
-    height: 18px;
-    background-color:#EA5334;
-    float: left;
-    margin-top: 15px;
-    -moz-border-radius: 50% 50% 50% 50%;
-    -webkit-border-radius: 50% 50% 50% 50%;
-    border-radius: 50% 50% 50% 50%;
-    -webkit-animation: object 1s infinite;
-    animation: object 1s infinite;
-    background-color: salmon;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  padding-top: 116px;
 }
 
-.loading_bar > .obj + .obj { 
-  margin-left: 15px;
+.loading_wrap > .loading {
+  height: 100%;
+  background-color: #E2DED5;
 }
 
-.loading_bar > .obj:nth-child(1) {
-
-}
-.loading_bar > .obj:nth-child(2) {
-  animation-delay: 0.2s;
-}
-.loading_bar > .obj:nth-child(3) {
-  animation-delay: 0.4s;
-}
-.loading_bar > .obj:nth-child(4) {
-  animation-delay: 0.6s;
-}
-.loading_bar > .obj:nth-child(5) {
-  animation-delay: 0.8s;
-}
-
-@keyframes object {
-  50% {transform: translate(0,-50px);}
+.loading_wrap > .loading > .circles {
+  color: #ff5722ad;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  /* position: relative; */
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  /* top: 350px; */
+  -webkit-animation: load4 1.3s infinite linear;
+  animation: load4 1.3s infinite linear;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
 }
 
-
-/* .loading_bar {
-  display: inline-block;
-  position: absolute;
-  width: 64px;
-  height: 64px;
-  top: 47%;
-  left: 47%;
-}
-.loading_bar div {
-  display: inline-block;
-  position: absolute;
-  left: 6px;
-  width: 13px;
-  background: #42b883;
-  background:  #EA5334;
-  animation: loading_bar 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
-}
-.loading_bar div:nth-child(1) {
-  left: 6px;
-  animation-delay: -0.24s;
-}
-.loading_bar div:nth-child(2) {
-  left: 26px;
-  animation-delay: -0.12s;
-}
-.loading_bar div:nth-child(3) {
-  left: 45px;
-  animation-delay: 0;
-}
-@keyframes loading_bar {
-  0% {
-    top: 6px;
-    height: 51px;
+@-webkit-keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
   }
-  50%, 100% {
-    top: 19px;
-    height: 26px;
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
   }
-} */
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+
+@keyframes load4 {
+  0%,
+  100% {
+    box-shadow: 
+    0 -3em 0 0.2em, 2em -2em 0 0em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 0;
+  }
+  12.5% {
+    box-shadow: 0 -3em 0 0, 2em -2em 0 0.2em, 3em 0 0 0, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  25% {
+    box-shadow: 0 -3em 0 -0.5em, 2em -2em 0 0, 3em 0 0 0.2em, 2em 2em 0 0, 0 3em 0 -1em, -2em 2em 0 -1em, -3em 0 0 -1em, -2em -2em 0 -1em;
+  }
+  37.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 0, 2em 2em 0 0.2em, 0 3em 0 0em, -2em 2em 0 -1em, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  50% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 0em, 0 3em 0 0.2em, -2em 2em 0 0, -3em 0em 0 -1em, -2em -2em 0 -1em;
+  }
+  62.5% {
+    box-shadow: 0 -3em 0 -1em, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 0, -2em 2em 0 0.2em, -3em 0 0 0, -2em -2em 0 -1em;
+  }
+  75% {
+    box-shadow: 0em -3em 0 -1em, 2em -2em 0 -1em, 3em 0em 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0.2em, -2em -2em 0 0;
+  }
+  87.5% {
+    box-shadow: 0em -3em 0 0, 2em -2em 0 -1em, 3em 0 0 -1em, 2em 2em 0 -1em, 0 3em 0 -1em, -2em 2em 0 0, -3em 0em 0 0, -2em -2em 0 0.2em;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .loading_wrap > .loading > .circles {
+    width: 0.5em;
+    height: 0.5em;
+  }
+}
+
+
+
 </style>

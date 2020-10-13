@@ -10,6 +10,8 @@
 import ToolBar from './components/ToolBar'
 import Spinner from './components/Spinner'
 import bus from './utils/bus'
+import listMixins from './mixins/listMixins'
+
 
 export default {
     data(){
@@ -18,24 +20,24 @@ export default {
         }
     },
     created(){
-        const currentRouter = this.$route.name;
-        if( currentRouter !== 'news' ){
-
-            this.$router.push('/news')
-            // setTimeout(()=>{
-            //     this.$router.push('/news').catch(err=>{console.log('위치는 app 라우터 에러',err)})
-            // },2000)
-            bus.$emit('start:spinner');
-
-        }else return;
-
         bus.$on('start:spinner',this.startSpinner);
         bus.$on('end:spinner',this.endSpinner);
 
+        this.$store.dispatch('FETCH_LIST','news');
+        if(this.$route.name !== 'new') {
+            this.$router.push('/news')
+        }else return
+        
+
     },
+    mixins:[listMixins],
     beforeDestroy(){
         bus.$off('start:spinner');
         bus.$off('end:spinner');
+    },
+    mounted(){
+        bus.$emit('start:spinner');
+        
     },
     components:{
         ToolBar,

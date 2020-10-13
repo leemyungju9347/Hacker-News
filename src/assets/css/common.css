@@ -5,6 +5,7 @@
     box-shadow: 14px 12px #707070;
     overflow: hidden;
     position: relative;
+    min-height: 100vh;
 }
 
 /*--------header-------------*/
@@ -12,7 +13,6 @@ header {
     border-bottom: 3px solid #000;
     position: relative;
     padding: 0 20px 10px;
-    /* min-width: 1100px; */
 }
 
 header > h1 {
@@ -21,89 +21,75 @@ header > h1 {
     margin-right: 50px;
 }
 
-header > .router-link {
+header > .router_link {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     top: 7px;
 }
-header > .router-link > li {
+header > .router_link > li {
     display: inline-block;
-    /* transition: 0.5s; */
 }
 
-header > .router-link > li + li {
+header > .router_link > li + li {
     margin-left: 30px;
 }
 
-
-header > .router-link > li.active {
-    /* background-color: #000; */
-    /* color: #fff; */
-    /* background-color: #E5190F; */
-    /* background: linear-gradient(#F0F0F0 50%,#ff534b 50%); */
-    /* background: linear-gradient(#F0F0F0 50%,#f28748 50%); */
-    /* background-color:#f28748; */
-    /* background-color: #ff7f50; */
-    /* background: linear-gradient(#F0F0F0 50%,#ff7f50 50%); */
-    /* background: linear-gradient(#F0F0F0 50%,#000 50%); */
-    background-color: #000;
+header > .router_link > li.active {
     background-color: #EA5334;
-    /* background-color: #353434; */
 }
 
-
-header > .router-link > li > a {
+header > .router_link > li > a {
     font-size: 2em;
     padding:0 10px;  
 }
 
-header > .router-link > li.active > a {
+header > .router_link > li.active > a {
     color: #fff;
 }
 
 
 
 /*-------list-------*/
-.title-list {
+.title_list {
     padding: 20px;
     margin-top: 20px;
 }
 
-.title-list > li {
+.title_list > li {
 }
 
 
-.title-list > li + li {
+.title_list > li + li {
     margin-top:25px
 }
 
-.title-list > li > .title {
+.title_list > li > .title {
     font-size:22px;
     margin-right: 10px;
     transition: 0.2s;
 }
 
-.title-list > li > .title:hover {
+.title_list > li > .title:hover {
     color: #EA5334;
 }
 
-.title-list > li > b {
+.title_list > li > b {
     font-size: 14px;
     color:#757575
 }
 
-.title-list > li > .user_area {
+.title_list > li > .user_area {
     font-size:14px; 
     margin-left: 15px;
     position: relative;
 }
 
-.title-list > li > .user_area:hover {
+.title_list > li > .user_area:hover {
     text-decoration: underline;
 }
 
-.title-list > li > .user_area::after {
+.title_list > li > .user_area::after {
     content: '';
     width:1px;
     height: 12px;
@@ -114,13 +100,13 @@ header > .router-link > li.active > a {
 
 }
 
-.title-list > li > .comment > span {
+.title_list > li > .comment > span {
     font-size:12px; 
     color:#6495ed;
     transition: 0.3s;
 }
 
-.title-list > li > .comment:hover > span {
+.title_list > li > .comment:hover > span {
     font-size: 13px;
 }
 
@@ -193,28 +179,34 @@ header > .router-link > li.active > a {
 
 /* ---------- mediaquery -------- */
 @media screen and (max-width:1200px) {
-    header > .router-link {
-    }
-}
-
-@media screen and (max-width:1023px) {
-    body {
-        /* background-color: cornflowerblue; */
-    }
-
     header > h1 {
-        margin-right: 78px; 
         font-size: 2em;
+        margin-right: 120px;
     }
+    
 
-    header > .router-link {
+    header > .router_link {
         position: unset;
         transform: unset;
         display: inline-block;
     }
 
-    header > .router-link > li > a {
+    header > .router_link > li > a {
+        font-size: 1.8em;
+    }
+}
+
+@media screen and (max-width:1023px) {
+     header > h1 {
+        margin-right: 78px; 
+    }
+
+    header > .router_link > li > a {
         font-size: 1.5em;
+    }
+
+    .comment_wrap > h3 {
+        font-size: 30px;
     }
 }
 
@@ -241,41 +233,41 @@ header > .router-link > li.active > a {
         display: block;
     }
 
-    header > .router-link {
+    header > .router_link {
         margin-top: 10px;
     }
-    header > .router-link > li + li {
+    header > .router_link > li + li {
         margin-left:5px;
     }
 
-    header > .router-link > li > a {
+    header > .router_link > li > a {
         padding: 0 5px;
         font-size: 1em;
     }
 
-    .title-list {
+    .title_list {
         margin-top: 0;
         padding: 10px;
     }
 
-    .title-list > li > .title {
+    .title_list > li > .title {
         font-size: 15px;
         margin-right: 7px;
     }
 
-    .title-list > li > .comment > span {
+    .title_list > li > .comment > span {
         font-size: 10px;
     }
 
-    .title-list > li > b {
+    .title_list > li > b {
         font-size: 12px;
     }
 
-    .title-list > li > .user_area {
+    .title_list > li > .user_area {
         font-size: 12px;
     }
 
-    .title-list > li > .user_area::after {
+    .title_list > li > .user_area::after {
         height: 9px;
     }
 
@@ -305,6 +297,24 @@ header > .router-link > li.active > a {
     .comment_wrap > .comment_list > li > .user {
         font-size: 11px;
         bottom: -10px;
+    }
+
+
+    /* ------- userInfo -------- */
+    .user_info {
+        padding: 30px;
+    }
+    
+    .user_info > li {
+        font-size: 18px;
+    }
+
+    .user_info > li + li {
+        margin-top: 15px;
+    }
+
+    .user_info > li > span {
+        display: block;
     }
     
 }
